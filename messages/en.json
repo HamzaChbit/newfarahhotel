@@ -1,0 +1,77 @@
+{
+  "IndexPage": {
+    "title": "WELCOME TO NEW FARAH HOTEL",
+    "description": "a traditional hotel located in the souss region of agadir."
+  },
+  "Contact": {
+    "get":"Get in",
+    "touche": "Touch",
+    "description": "Fill in the form with your questions, comments and concerns, and  we will get right back to you.",
+    "info":"CONTACT INFO",
+    "infoDec":" Have any Queries? Let us know. We will clear it for you at the best.",
+    "phone":"PHONE",
+    "name":"Your Name",
+    "error":"This field is required"
+
+  },
+  "FeaturedRoom":{
+    "featured":"Featured Room",
+    "from":"Start From",
+    "discount":"Discount",
+    "more":"More Details"
+  },
+
+
+  "Navigation": {
+    "home": "Home",
+    "rooms":"Rooms"
+  },
+  "Search": {
+    "type": "  Room Type :",
+    "search":" Search :",
+    "all":"All",
+    "twin":"Twin Room",
+    "suite":"Suite",
+    "family":"Family Room",
+    "single":"Single Room"
+  }, 
+  "NewsLetter":{
+    "description":"Just a 10-minute walk through the shopping area to Agadir’s beach, is New Farah Hotel. It offers an outdoor swimming pool, a coffee shop, a shisha bar and a roof-top terrace with sea and mountain views.",
+    "title":"ALL GUEST ROOMS HAVE A VIEW AND RELAXATION FACILITIES",
+    "decOne":" A private balcony and an LCD TV feature in all of the accommodation at New Farah. Each is air-conditioned and also has a minibar. Some rooms have views and all family rooms have a kitchenette.",
+    "decTwo":"Guests can enjoy views of the mountains in the Sky Restaurant, which is located on the fifth floor and offers a buffet and international cuisine. Guests can also eat at the pool-side snack bar or sample a drink from the bar.",
+    "decTree":"Free internet access is available in public areas of the hotel. There is also a currency exchange service and a tour desk in the 24-hour reception. The Royal Tennis Club is 260 metres from the hotel.",
+    "get":"Get in Touch "
+  },
+  "Card":{
+    "room":"Room",
+    "button":"BOOK NOW"
+  },
+  "BookNow":{
+    "checkIn":" Check in Date",
+    "checkOut":"Check Out Date",
+    "adults":" Adults",
+    "children":"Children",
+    "total":"Total Price",
+    "book":"Book Now",
+    "singUp":"Sign Up"
+  },
+  "pageRoom":{
+    "amenities":"Offered Amenities",
+    "safety":"Safety And Hygiene",
+    "cleaning":"Daily Cleaning",
+    "fire":"Fire Extinguishers",
+    "disinfections":"Disinfections and Sterilizations",
+    "smoke":"Smoke Detectors",
+    "TV":"Flat-screen TV",
+    "air":"Air conditioning",
+    "bathroom":"Private bathroom"
+  },
+  "Footer": {
+    "copyright": "© 2024 Your App. All rights reserved.",
+    "getintouch":"Get in Touch",
+    "privacy":"Our Privacy Commitment",
+    "service":"Terms of service",
+    "customer":"Customer Assistance"
+  }
+}
