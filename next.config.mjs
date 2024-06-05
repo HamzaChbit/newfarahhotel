@@ -12,7 +12,8 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       'img.clerk.com',
       'cf.bstatic.com',
-      'cdn.sanity.io'
+      'cdn.sanity.io',
+      'images.remotePatterns'
     ],
   },
 };

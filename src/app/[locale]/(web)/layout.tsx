@@ -18,6 +18,12 @@ export const metadata: Metadata = {
   title: 'NEW FARAH HÔTEL',
   description: 'Sindibad offers excellent value for money, with competitive prices and a wide range of amenities. The hotel is strategically located in the heart of Agadir, in the historic and touristy neighborhood of Talborjt. It is surrounded by two large squares, a beautiful pedestrian street leading to the sea, ',
   keywords:["New Farah Hotel","New Farah ","New Farah","Agadir","best hotel","hotel","Hotel"],
+  icons:{
+    icon:['/favicon.ico?v=1'],
+    apple:['/apple-touch-icon.png?v=4'],
+    shortcut:['/apple-touch-icon.png']
+
+  },
   authors:[{name:"Hotel New Farah"}],
   creator:"Hotel New Farah",
   publisher:"Hotel New Farah",
