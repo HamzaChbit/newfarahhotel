@@ -9,14 +9,13 @@ const NewsLetter = () => {
  
     return (
     
-       <section>
+       <section data-aos="fade-up"  data-aos-duration="3000">
   <div className="mx-auto max-w-screen-2xl px-4 py-16 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:h-screen lg:grid-cols-2">
-      <div className="relative z-5 lg:py-16"  data-aos="fade-up"
+  <div className="grid grid-cols-1  lg:grid-cols-2">
+      <div className="relative z-20 lg:py-16"  data-aos="fade-up"
      >
-        <div className="relative h-64 sm:h-80 lg:h-full">
-          <Image
-          width={600} height={600}
+          <div className="relative h-64 sm:h-80 lg:h-full">
+        <img
             alt="hotel"
             src="/images/10.jpg"
             className="absolute inset-0 h-full w-full object-cover"
@@ -34,10 +33,10 @@ const NewsLetter = () => {
         <div className="p-8 sm:p-16 lg:p-24 flex justify-evenly flex-col " data-aos="fade-up">
           <div>
                 <h2 className="text-3xl font-bold sm:text-3xl tracking-wide ">
-          <span  className="text-tertiary-dark border-b-2 border-black">HOTEL</span>  NEW FARAH AGADIR         </h2>
+          <span  className="text-tertiary-dark ">HOTEL</span>  NEW FARAH AGADIR         </h2>
 
 
-          <p className="mt-4 text-gray-600">
+          <p className="my-4 text-gray-600">
         {t('description')}
           </p>
           </div>
@@ -49,7 +48,8 @@ const NewsLetter = () => {
 <br />
 {t('decTwo')}
 <br />
-{t('decTree')}
+<p className="md:block hidden">{t('decTree')}</p>
+
           </p>   <Link
             href="/rooms"
             className="mt-8 inline-block rounded border border-tertiary-dark bg-tertiary-dark  px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-tertiary-dark  focus:outline-none focus:ring active:text-tertiary-dark "

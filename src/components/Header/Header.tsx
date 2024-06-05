@@ -105,7 +105,7 @@ const Header = ({
       <div className=' px-5 flex flex-row items-center justify-between h-20 text-slate-700 py-2 text-xl drop-shadow-2x'>
 
       <div  className='flex items-center w-full md:2/3' >
-      <Link href="/" className='font-black text-tertiary-dark ' >
+      <Link href="/" className='md:font-black font-semibold text-tertiary-dark ' >
         hOTEL
       </Link>
    

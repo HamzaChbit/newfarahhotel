@@ -27,7 +27,7 @@ const handleSearchQueryChange = (e:ChangeEvent<HTMLInputElement>) => {
 const t = useTranslations('Search');
 const local = useLocale()
 const handleFilterClick = () => {
-  router.push(`${local}/rooms?roomType=${roomTypeFilter}&searchQuery=${searchQuery}`);
+  router.push(`/${local}/rooms?roomType=${roomTypeFilter}&searchQuery=${searchQuery}`);
 };
 
 
