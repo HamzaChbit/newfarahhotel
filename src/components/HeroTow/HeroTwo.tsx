@@ -35,7 +35,8 @@ const HeroTwo = () => {
   
         <li className="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1" data-aos="fade-up">
           <div  className="group relative block">
-            <Image width={400} height={400}
+            <Image
+            width={1200} height={1200}
                      src="/images/3.jpg"
               alt="ddd"
               className="aspect-square w-full object-cover transition duration-500 group-hover:opacity-90"
