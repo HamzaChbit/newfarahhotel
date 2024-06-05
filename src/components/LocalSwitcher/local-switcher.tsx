@@ -1,7 +1,9 @@
 "use client"
 import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
-import { ChangeEvent, useState, useTransition } from 'react';
+
+
+import { ChangeEvent,  useTransition } from 'react';
 
 export default function LocalSwitcher() {
   const [isPending, startTransition] = useTransition();
@@ -20,7 +22,7 @@ export default function LocalSwitcher() {
     <div className='rounded-3xl border-none bg-white  text-2xl font-semibold  cursor-pointer'>
      
       <select
-        defaultValue={localActive}
+        defaultValue="en"
         className='bg-transparent text-slate-700   outline-none rounded-lg border-none '
         onChange={onSelectChange}
         disabled={isPending}

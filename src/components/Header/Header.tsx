@@ -7,7 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { FaMapMarkerAlt, FaPhone, FaUserCircle } from 'react-icons/fa';
 import LocalSwitcher from '../LocalSwitcher/local-switcher';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { AnimatePresence, motion,useScroll } from "framer-motion";
 import { useState } from 'react';
 import { IoCloseOutline, IoMenuSharp } from 'react-icons/io5';
@@ -16,13 +16,12 @@ import { IoCloseOutline, IoMenuSharp } from 'react-icons/io5';
 
 
 const Header = ({
-    params: {locale}
+  params: {locale}
 }: Readonly<{
- 
-  params: {locale: string};
-}> ) => {
 
-  
+params: {locale: string};
+}>) => {
+
 
   const t = useTranslations('Navigation');
 

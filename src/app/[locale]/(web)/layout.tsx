@@ -10,9 +10,8 @@ import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import Toast from "@/components/Tosat/Toast";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import {NextIntlClientProvider} from 'next-intl';
-import {getMessages} from 'next-intl/server';
-
+import {NextIntlClientProvider, useLocale} from 'next-intl';
+import { getMessages } from "next-intl/server";
 
 
 export const metadata: Metadata = {
@@ -36,13 +35,15 @@ const poppins = Poppins({
   style: ['italic', 'normal'],
   variable: '--font-poppins',
 });
-export default async function  RootLayout({
+export default  async function  RootLayout({
   children,  params: {locale}
 }: Readonly<{
   children: React.ReactNode;
   params: {locale: string};
 }>) {
+
   const messages = await getMessages();
+
 
   return (  
      <ClerkProvider>
@@ -66,9 +67,9 @@ export default async function  RootLayout({
 
  '>
      
-      <Header params={{
+      <Header  params={{
                   locale: locale
-                }} /> 
+                }}/>  
 
         {children}
         <Footer/>   
