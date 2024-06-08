@@ -60,30 +60,28 @@ export const getRoom = groq`*[_type == "hotelRoom" && slug.current == $slug][0] 
 
 
 
-export const getUserBookingsQuery = groq`*[_type == 'booking' && userId == $userId]  {
-    _id,
-    hotelRoom -> {
-        _id,
-        name,
-        slug,
-        price
-    },
-    checkinDate,
-    checkoutDate,
-    telephone,
-    numberOfDays,
-    adults,
-    children,
-    totalPrice,
-    user,
-    userId,
-    discount
-}`;
+// export const getUserBookingsQuery = groq`*[_type == 'booking' && userId == $userId]  {
+//     _id,
+//     hotelRoom -> {
+//         _id,
+//         name,
+//         slug,
+//         price
+//     },
+//     checkinDate,
+//     checkoutDate,
+//     telephone,
+//     numberOfDays,
+//     adults,
+//     children,
+//     totalPrice,
+//     discount
+// }`;
 
-export const getUserDataQuery = groq`*[_type == 'booking' && _id == $userId][0] {
-    _id,
-    name,
-    email,
-  _createdAt,
-    image,
-}`;
+// export const getUserDataQuery = groq`*[_type == 'booking' && _id == $userId][0] {
+//     _id,
+//     name,
+//     email,
+//   _createdAt,
+//     image,
+// }`;

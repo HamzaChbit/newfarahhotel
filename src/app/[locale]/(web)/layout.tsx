@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Poppins } from 'next/font/google';
 
-import { ClerkProvider } from "@clerk/nextjs";
 import 'aos/dist/aos.css';
 import ThemeProvider from "@/components/ThemeProvider/ThemeProvider";
 import Toast from "@/components/Tosat/Toast";
@@ -52,7 +51,7 @@ export default  async function  RootLayout({
 
 
   return (  
-     <ClerkProvider>
+
     <html lang={locale} >
        <head>
     
@@ -88,6 +87,6 @@ export default  async function  RootLayout({
         </NextIntlClientProvider>
         </body>
     </html> 
-    </ClerkProvider>
+
   );
 }

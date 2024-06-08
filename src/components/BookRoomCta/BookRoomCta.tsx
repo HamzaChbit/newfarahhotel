@@ -85,7 +85,7 @@ const {price,discount ,specialNote,
           ''
         )}
    </h3>
-   <div className='w-full border-b-2 border-b-secondary my-2' />
+   <div className='w-full border-b-2 border-b-tertiary-dark my-2' />
    <h4 className='my-8'>{specialNote}</h4>
 
    <div className='flex'>

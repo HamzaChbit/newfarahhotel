@@ -2,12 +2,11 @@
 
 
 
-import { useUser } from '@clerk/nextjs';
-import Image from 'next/image';
+
 import Link from 'next/link'
-import { FaMapMarkerAlt, FaPhone, FaUserCircle } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone} from 'react-icons/fa';
 import LocalSwitcher from '../LocalSwitcher/local-switcher';
-import { useLocale, useTranslations } from 'next-intl';
+import {  useTranslations } from 'next-intl';
 import { AnimatePresence, motion,useScroll } from "framer-motion";
 import { useState } from 'react';
 import { IoCloseOutline, IoMenuSharp } from 'react-icons/io5';
@@ -26,8 +25,7 @@ params: {locale: string};
   const t = useTranslations('Navigation');
 
   const {scrollYProgress}=useScroll()
-  const { user } = useUser();
-  const userId = user?.id;
+ 
   const [open, setOpen] = useState(false);
   const toggleMenu = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -110,29 +108,7 @@ params: {locale: string};
    
       <div className='hidden md:block' > 
       <ul className='flex items-center ml-5' >
-      <li className='flex items-center text-black' >
-      {userId ? (
-              <Link href={`/${locale}/users/${userId}`   }      title="Visit Profile" >
-                {user.imageUrl ? (
-                  <div className='w-10 h-10 rounded-full overflow-hidden'>
-                    <Image
-                        src={user.imageUrl}
-                      alt={user?.username || "user"}
-                      width={30}
-                      height={30}
-                      className='scale-animation img'
-                    />
-                  </div>
-                ) : (
-                  <FaUserCircle className='cursor-pointer' />
-                )}
-              </Link>
-            ) : (
-              <Link href={`/${locale}/sign-up`}aria-label='Sign Up'  >
-                <FaUserCircle className='cursor-pointer ' color='black' />
-              </Link>
-            )}
-      </li>
+   
     
       </ul>
       </div>
@@ -174,32 +150,7 @@ params: {locale: string};
           >
             <div className="flex h-full flex-col w-full it">
               <div className="flex justify-between">
-              <ul className='flex  ml-5' >
-      <li className='flex  text-black' >
-      {userId ? (
-              <Link href={`/${locale}/users/${userId}`   }    onClick={toggleMenu}   title="Visit Profile" >
-                {user.imageUrl ? (
-                  <div className='w-15 h-15 rounded-full overflow-hidden'>
-                    <Image
-                        src={user.imageUrl}
-                      alt={user?.username || "user"}
-                      width={30}
-                      height={30}
-                      className='scale-animation img'
-                    />
-                  </div>
-                ) : (
-                  <FaUserCircle className='cursor-pointer' />
-                )}
-              </Link>
-            ) : (
-              <Link href={`/${locale}/sign-up`}aria-label='Sign Up'   onClick={toggleMenu} >
-                <FaUserCircle className='cursor-pointer  ' color='blue' size={30}/>
-              </Link>
-            )}
-      </li>
-    
-      </ul>
+  
 
                 <p
                   className="cursor-pointer text-md text-black hover:text-blue-600"
@@ -258,9 +209,9 @@ params: {locale: string};
        
         </div>
 
-        <div className='cursor-pointer '    >  
+     
           <LocalSwitcher />
-          </div>
+   
     
 
               </motion.div>

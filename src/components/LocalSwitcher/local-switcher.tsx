@@ -16,13 +16,12 @@ export default function LocalSwitcher() {
       router.replace(`/${nextLocale}`);
     });
   };
- 
 
   return (
     <div className='rounded-3xl border-none bg-white  text-2xl font-semibold  cursor-pointer'>
      
       <select
-        defaultValue="en"
+     defaultValue={localActive}
         className='bg-transparent text-slate-700   outline-none rounded-lg border-none '
         onChange={onSelectChange}
         disabled={isPending}

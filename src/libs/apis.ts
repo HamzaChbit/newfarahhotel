@@ -51,50 +51,50 @@ export async function getbg() {
 
 
 
-export const createBooking = async ({
-  adults,
-  checkinDate,
-  checkoutDate,
-  children,
-  discount,
-  hotelRoom,
-  telephone,
-  numberOfDays,
-  totalPrice,
-  user,
-  userId,
-  email,
-}: CreateBookingDto) => {
-  const mutation = {
-    mutations: [
-      {
-        create: {
-          _type: 'booking',
-          user,
-          userId,
-          email,
-          hotelRoom: { _type: 'reference', _ref: hotelRoom },
-          checkinDate,
-          checkoutDate,
-          numberOfDays,
-          telephone,
-          adults,
-          children,
-          totalPrice,
-          discount,
-        },
-      },
-    ],
-  };
+// export const createBooking = async ({
+//   adults,
+//   checkinDate,
+//   checkoutDate,
+//   children,
+//   discount,
+//   hotelRoom,
+//   telephone,
+//   numberOfDays,
+//   totalPrice,
+//   user,
+//   userId,
+//   email,
+// }: CreateBookingDto) => {
+//   const mutation = {
+//     mutations: [
+//       {
+//         create: {
+//           _type: 'booking',
+//           user,
+//           userId,
+//           email,
+//           hotelRoom: { _type: 'reference', _ref: hotelRoom },
+//           checkinDate,
+//           checkoutDate,
+//           numberOfDays,
+//           telephone,
+//           adults,
+//           children,
+//           totalPrice,
+//           discount,
+//         },
+//       },
+//     ],
+//   };
 
-  const { data } = await axios.post(
-    `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
-    mutation,
-    { headers: { Authorization: `Bearer ${process.env.SANITY_STUDIO_TOKEN}` } }
-  );
+//   const { data } = await axios.post(
+//     `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-10-21/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+//     mutation,
+//     { headers: { Authorization: `Bearer ${process.env.SANITY_STUDIO_TOKEN}` } }
+//   );
 
-  return data;
-};
+//   return data;
+// };
 
 export const updateHotelRoom = async (hotelRoomId: string) => {
   const mutation = {
@@ -119,15 +119,15 @@ export const updateHotelRoom = async (hotelRoomId: string) => {
   return data;
 };
 
-export async function getUserBookings(userId: string) {
-  const result = await sanityClient.fetch<Booking[]>(
-    queries.getUserBookingsQuery,
-    {
-      userId,
-    },
-    { cache: 'no-cache' }
-  );
+// export async function getUserBookings(userId: string) {
+//   const result = await sanityClient.fetch<Booking[]>(
+//     queries.getUserBookingsQuery,
+//     {
+//       userId,
+//     },
+//     { cache: 'no-cache' }
+//   );
 
-  return result;
-}
+//   return result;
+// }
 
