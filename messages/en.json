@@ -54,6 +54,8 @@
     "children":"Children",
     "total":"Total Price",
     "book":"Book Now",
+    "Discount":"Discount",
+    "Now":"Now",
     "singUp":"Sign Up"
   },
   "pageRoom":{

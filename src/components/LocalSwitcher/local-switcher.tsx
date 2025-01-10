@@ -1,21 +1,33 @@
 "use client"
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
-
-
+import { usePathname, useRouter } from 'next/navigation';
 import { ChangeEvent,  useTransition } from 'react';
 
 export default function LocalSwitcher() {
   const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const localActive = useLocale();
+  const pathname = usePathname();
+  // const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+  //   const nextLocale = e.target.value;
+  //   startTransition(() => {
+  //     router.replace(`/${nextLocale}`);
+  //   });
+  // };
+
+
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     startTransition(() => {
-      router.replace(`/${nextLocale}`);
+      const currentPath = pathname.replace(/^\/[a-z]{2}/, '');
+   
+      router.replace(`/${nextLocale}${currentPath}`);
     });
   };
+
+
+
 
   return (
     <div className='rounded-3xl border-none bg-white  text-2xl font-semibold  cursor-pointer'>

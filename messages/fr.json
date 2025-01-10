@@ -44,7 +44,9 @@
     "children":"Enfants",
     "total":"Prix total",
     "book":"Réservez",
-    "singUp":"S'inscrire"
+    "singUp":"S'inscrire",
+    "Discount":"Rabais",
+    "Now":"Maintenant"
   },
   "NewsLetter":{
     "description":"Situé à seulement 10 minutes de marche à travers le quartier commerçant de la plage d'Agadir, le New Farah Hotel possède une piscine extérieure, un café, un bar à chicha ainsi qu'un toit-terrasse avec vue sur la mer et les montagnes.",

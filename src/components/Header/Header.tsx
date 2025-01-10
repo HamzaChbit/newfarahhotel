@@ -74,7 +74,7 @@ params: {locale: string};
 <motion.div  style={{scaleX: scrollYProgress ,position:"fixed",top:0,right:0,height:10,left:0,background:"#016de4",zIndex:10 ,transformOrigin:"0%"}}>
 </motion.div>
 
-    <header className=' text-md  w-full  text-white    ' >
+    <header className=' text-md  w-full  text-white  ' >
    
  <div className='hidden md:block' > 
       <div className='flex  items-center bg-tertiary-dark px-1 py-6'>
@@ -86,10 +86,10 @@ params: {locale: string};
           </div>
          
         
-          <div className='flex flex-row items-center gap-x-2'>      
+          {/* <div className='flex flex-row items-center gap-x-2'>      
              <FaPhone />
              <h1>0528380606</h1>
-          </div>
+          </div> */}
           <div className=' '>  
           <LocalSwitcher />
           </div>

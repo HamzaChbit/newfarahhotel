@@ -39,7 +39,10 @@ export type Room = {
     en:string;
     fr:string;
   }
-  dimension: string;
+  dimension: {
+    en:string;
+    fr:string;
+  }
   discount: number;
   images: Image[];
   isBooked: boolean;
@@ -53,6 +56,9 @@ export type Room = {
   offeredAmenities: Amenity[];
   price: number;
   slug: Slug;
-  specialNote: string;
+  specialNote: {
+    en: string;
+    fr: string;
+  };
   type: string;
 };

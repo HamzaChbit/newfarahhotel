@@ -14,7 +14,10 @@ import HotelPhotoGallery from "@/components/HotelPhotoGallery/HotelPhotoGallery"
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { faBed, faWifi, faCity } from '@fortawesome/free-solid-svg-icons';
-
+import BookRoomCta from "@/components/BookRoomCta/BookRoomCta";
+import { useUser } from "@clerk/nextjs";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const RoomDetails = (props: { params: { slug: string } }) => {
   const {
@@ -22,31 +25,94 @@ const RoomDetails = (props: { params: { slug: string } }) => {
   } = props;
 
 
+  const { user } = useUser();
   const locale = useLocale()
   const t = useTranslations("pageRoom")
-  const d = useTranslations('FeaturedRoom')
-
+  const userId = user?.fullName;
+  const email = user?.emailAddresses[0]?.emailAddress;
 
   const fetchRoom = async (url: string) => getRoom(slug);
   const { data: room, error, isLoading } = useSWR(`/api/room/${slug}`, fetchRoom);
 
+  const [checkinDate, setCheckinDate] = useState<Date | null>(null);
+  const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
+  const [telephone, setTelephone] = useState("");
+  const [adults, setAdults] = useState(1);
+  const [noOfChildren, setNoOfChildren] = useState(0);
 
+  if (error) throw new Error("Cannot fetch data");
   if (!room) return <LoadingSpinner />;
 
-  const discountPrice = room.price - (room.price * room.discount / 100);
+  const calcMinCheckoutDate = () => {
+    if (checkinDate) {
+      const nextDay = new Date(checkinDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+      return nextDay;
+    }
+    return null;
+  };
 
+  const handleBookNowClick = async () => {
+    if (!checkinDate || !checkoutDate)
+      return toast.error("Please provide checkin / checkout date");
+
+    if (checkinDate > checkoutDate)
+      return toast.error("Please choose a valid checkin period");
+
+    if (!(telephone.length === 9 || telephone.length === 13 || telephone.length === 12 || telephone.length === 10 || telephone.length === 11 || telephone.length === 8 || telephone.length === 14 || telephone.length === 15))
+      return toast.error('Please enter a valid telephone number');
+
+
+    const numberOfDays = calcNumDays();
+
+    const hotelRoomSlug = room.slug.current;
+
+    try {
+      await axios.post("/api/stripe", {
+        checkinDate,
+        checkoutDate,
+        adults,
+        children: noOfChildren,
+        numberOfDays,
+        telephone,
+        hotelRoomSlug,
+        email,
+        user: userId,
+        userId: user?.id,
+      });
+      toast.success("Booking successful");
+      setCheckinDate(null);
+      setCheckoutDate(null);
+      setTelephone("");
+      setAdults(1);
+      setNoOfChildren(0);
+    } catch (error) {
+      console.log("Error: ", error);
+      toast.error("You must register an account");
+    }
+  };
+
+  const calcNumDays = () => {
+    if (!checkinDate || !checkoutDate) return;
+    const timeDiff = checkoutDate.getTime() - checkinDate.getTime();
+    const noOfDays = Math.ceil(timeDiff / (24 * 60 * 60 * 1000));
+    return noOfDays;
+  };
+
+
+ 
 
 
   return (
-    <div className="mt-20">
+    <div className="">
       <HotelPhotoGallery photos={room.images} />
-      <div className="container mx-auto mt-20">
+      <div className="container mx-auto mt-5">
         <div className="md:grid md:grid-cols-12 gap-10 px-3">
           <div className="md:col-span-8 md:w-full">
             <div>
-              <h2 className="font-bold text-left text-lg md:text-2xl text-tertiary-dark">
-                {locale == "en" ? room.name.en : room.name.fr} <span className="text-black">({room.dimension})</span>
-              </h2>
+            <h2 className="font-bold text-left text-lg md:text-2xl text-tertiary-dark">
+                {locale == "en" ? room.name.en : room.name.fr}  <span className="text-black"> ({locale == "en" ? room.dimension.en : room.dimension.fr})
+                </span> </h2>
               <div className="flex my-11">
               {room.offeredAmenities.map(amenity => (
   <div
@@ -127,7 +193,7 @@ const RoomDetails = (props: { params: { slug: string } }) => {
             </div>
           </div>
           <div className="md:col-span-4 rounded-xl shadow-lg dark:shadow-lg dark:shadow-white sticky top-10 h-fit overflow-auto">
-          <div className='px-7 py-6'>
+          {/* <div className='px-7 py-6'>
    <h1 className="text-tertiary-dark font-semibold md:text-2xl text-xl ">
  
      
@@ -144,7 +210,26 @@ const RoomDetails = (props: { params: { slug: string } }) => {
     <Link  href='https://www.booking.com/Share-CH6L7A' target="_blank">
     Reserve in Booking </Link> 
     </button>
-   </div>
+   </div> */}
+
+<BookRoomCta
+              discount={room.discount}
+              price={room.price}
+              specialNote={locale === "en" ? room.specialNote.en : room.specialNote.fr}
+              checkinDate={checkinDate}
+              setCheckinDate={setCheckinDate}
+              checkoutDate={checkoutDate}
+              setCheckoutDate={setCheckoutDate}
+              calcMinCheckoutDate={calcMinCheckoutDate}
+              adults={adults}
+              setAdults={setAdults}
+              noOfChildren={noOfChildren}
+              setNoOfChildren={setNoOfChildren}
+              isBooked={room.isBooked}
+              handleBookNowClick={handleBookNowClick}
+              telephone={telephone}
+              setTelephone={setTelephone}
+            />
   
           </div>
         </div>

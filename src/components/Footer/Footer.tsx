@@ -47,7 +47,7 @@ const Footer = () => {
       <div className="mt-1 border-t bg-tertiary-dark border-gray-100 pt-2">
     <div className="flex justify-center items-center gap-14">
         <p className="text-xs text-white">{t("copyright")}</p>
-        <Link href="https://www.linkedin.com/in/hamza-1dz4/" title="Visit Hamza's LinkedIn Profile" target="_blank" className="flex justify-start ">
+        <Link href="https://www.linkedin.com/in/hamzachbit/" title="Visit Hamza's LinkedIn Profile" target="_blank" className="flex justify-start ">
             <FaLinkedin size={20} className=' border-0' />
         </Link>
     </div>

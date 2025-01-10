@@ -11,6 +11,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import {NextIntlClientProvider, useLocale} from 'next-intl';
 import { getMessages } from "next-intl/server";
+import { ClerkProvider } from "@clerk/nextjs";
 
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default  async function  RootLayout({
 
 
   return (  
-
+    <ClerkProvider>
     <html lang={locale} >
        <head>
     
@@ -87,6 +88,6 @@ export default  async function  RootLayout({
         </NextIntlClientProvider>
         </body>
     </html> 
-
+    </ClerkProvider>
   );
 }
