@@ -34,7 +34,7 @@ const handleFilterClick = () => {
 
 
   return (
-    <section  className=' py-6 rounded-lg h-[60vh]  ' >
+    <section  className=' py-6 rounded-lg h-[60vh] z-0 ' >
         <div className='container mx-auto flex gap-4 flex-wrap justify-between items-center  bg-black bg-opacity-20 px-10 py-8 rounded-lg' >
             <div className='w-full md:1/3 lg:w-auto mb-4 md:mb-0' >
             <label  htmlFor="roomTypeSelect" className='block text-sm font-medium mb-2 text-white'>

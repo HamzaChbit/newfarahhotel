@@ -11,6 +11,7 @@ import { getFeaturedRoom, getbg } from "@/libs/apis";
 import HeroTwo from "@/components/HeroTow/HeroTwo";
 import LoadingSpinner from "./loading";
 import ClientComponent from "@/components/HeroSection/ClientComponent";
+import Image from "next/image";
 
 
 
@@ -18,7 +19,7 @@ import ClientComponent from "@/components/HeroSection/ClientComponent";
 
 export default  async function Home() {
   const featuredRoom = await getFeaturedRoom()
-  const fetch = await getbg()
+  // const fetch = await getbg()
 
 
 
@@ -26,11 +27,22 @@ export default  async function Home() {
 
   return (
     <>
-  {
-    <LoadingSpinner/> ?  <>
-  <div     className="  bg-no-repeat bg-cover bg-center mb-5 bg-opacity-100 bg-contrast-50 "style={{ backgroundImage: `url(${fetch.coverImage})`}}>
+
+  <div  className="relative mb-5 bg-opacity-20  ">
+   <div className="absolute top-0 left-0 w-full h-full z-[-1]">
+     <Image
+   src="/custon.jpg"
+   alt="Backround"
+   layout="fill"
+   objectFit="cover"
+   quality={75}
+   priority
+   title="Hotel New Farah"
    
    
+   />
+   </div>
+  
 
 
       
@@ -45,8 +57,7 @@ export default  async function Home() {
         <NewsLetter />
     
         <HeroTwo/>
-        </> : <LoadingSpinner/>
-  } 
+  
 
 
   </>
