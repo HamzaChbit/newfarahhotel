@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     },
     {
-      url: 'https://hotelsindibad.ma/en/contact',
+      url: 'https://newfarahhotel.vercel.app/en/contact',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.5,
