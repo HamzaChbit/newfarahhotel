@@ -90,20 +90,20 @@ const Rooms = () => {
 
 
   return (
-    <div className='  mx-auto  md:mt-5  mt-1 flex items-center justify-center flex-col h-full container '>
+    <div className='  mx-auto  md:mt-5  mt-1 flex items-center justify-center flex-col min-h-[100vh] max-h-full container '>
 
-   
+{/*    
    <SearchTow
         roomTypeFilter={roomTypeFilter}
         searchQuery={searchQuery}
         setRoomTypeFilter={setRoomTypeFilter}
         setSearchQuery={setSearchQuery}
-      />
+      /> */}
 
      
       {filteredRooms.length !== 0 ?
-      <div className=" flex flex-col w-[80%] ">
-          <div className='flex flex-col  md:px-10 px-2  py-8'>
+      <div className=" flex flex-col w-[90%] ">
+            <div className='flex flex-col  md:px-10 px-4   py-10'>
           {filteredRooms.map(room => (
             <RoomCard key={room._id} room={room} />
           ))}

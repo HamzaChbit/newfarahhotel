@@ -21,14 +21,14 @@ type Props = {
     return (
       
   <div className='rounded-xl h-full mb-10 mx-auto md:mx-0 overflow-hidden text-black border-2 border-tertiary-dark p-2 flex w-full md:1/3 lg:w-auto flex-col md:flex-row'  >
-        <div className='h-60 cursor-pointer overflow-hidden '>
+        <div className='h-60 cursor-pointer overflow-hidden min-w-[40%]'>
                <Link href={`/${locale}/rooms/${slug.current}`} >  
                 <Image
             src={coverImage}
             alt={name.en}
-            width={250}
-            height={250}
-            className='img scale-animation rounded-sm'
+            width={900}
+            height={900}
+            className='img scale-animation rounded-sm object-center'
           />
         </Link>
         </div>
@@ -48,7 +48,7 @@ type Props = {
   
           <Link
             href={`/${locale}/rooms/${slug.current}`}
-            className='bg-tertiary-dark inline-block text-center w-full py-4 rounded-xl text-white text-xl font-bold hover:-translate-y-2 hover:shadow-lg transition-all duration-500'
+            className='bg-tertiary-dark inline-block text-center px-6 py-4 rounded-xl text-white text-xl font-bold hover:-translate-y-2 hover:shadow-lg transition-all duration-500'
           >
         {t('button')}
           </Link>

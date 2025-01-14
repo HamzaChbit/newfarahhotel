@@ -1,7 +1,7 @@
 
   
   export type CreateBookingDto = {
-    user: string;
+  
     hotelRoom: string;
     checkinDate: string;
     checkoutDate: string;
@@ -12,7 +12,7 @@
     totalPrice: number;
     discount: number;
     email:string;
-    userId:string;
+   
   };
 
 export type Image = {

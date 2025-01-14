@@ -11,18 +11,7 @@ const booking = {
       type: "string",
       validation: (Rule) => Rule.required(),
     }),
-    defineField(  {
-      name: "user",
-      title: "User",
-      type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField(  {
-      name: "userId",
-      title: "UserId",
-      type: "string",
-      
-    }),
+
     defineField({
       name: 'telephone',
       title: 'Telephone Number',

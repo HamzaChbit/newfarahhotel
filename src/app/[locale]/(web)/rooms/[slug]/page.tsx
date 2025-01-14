@@ -12,10 +12,10 @@ import { IoTvSharp } from "react-icons/io5";
 import { getRoom } from "@/libs/apis";
 import HotelPhotoGallery from "@/components/HotelPhotoGallery/HotelPhotoGallery";
 import { useLocale, useTranslations } from "next-intl";
-import Link from "next/link";
+
 import { faBed, faWifi, faCity } from '@fortawesome/free-solid-svg-icons';
 import BookRoomCta from "@/components/BookRoomCta/BookRoomCta";
-import { useUser } from "@clerk/nextjs";
+
 import toast from "react-hot-toast";
 import axios from "axios";
 
@@ -25,11 +25,10 @@ const RoomDetails = (props: { params: { slug: string } }) => {
   } = props;
 
 
-  const { user } = useUser();
+  
   const locale = useLocale()
   const t = useTranslations("pageRoom")
-  const userId = user?.fullName;
-  const email = user?.emailAddresses[0]?.emailAddress;
+ 
 
   const fetchRoom = async (url: string) => getRoom(slug);
   const { data: room, error, isLoading } = useSWR(`/api/room/${slug}`, fetchRoom);
@@ -37,6 +36,7 @@ const RoomDetails = (props: { params: { slug: string } }) => {
   const [checkinDate, setCheckinDate] = useState<Date | null>(null);
   const [checkoutDate, setCheckoutDate] = useState<Date | null>(null);
   const [telephone, setTelephone] = useState("");
+  const [email, setEmail] = useState("");
   const [adults, setAdults] = useState(1);
   const [noOfChildren, setNoOfChildren] = useState(0);
 
@@ -77,13 +77,13 @@ const RoomDetails = (props: { params: { slug: string } }) => {
         telephone,
         hotelRoomSlug,
         email,
-        user: userId,
-        userId: user?.id,
+
       });
       toast.success("Booking successful");
       setCheckinDate(null);
       setCheckoutDate(null);
       setTelephone("");
+      setEmail("");
       setAdults(1);
       setNoOfChildren(0);
     } catch (error) {
@@ -228,6 +228,8 @@ const RoomDetails = (props: { params: { slug: string } }) => {
               isBooked={room.isBooked}
               handleBookNowClick={handleBookNowClick}
               telephone={telephone}
+              email={ email}
+              setEmail={ setEmail}
               setTelephone={setTelephone}
             />
   
